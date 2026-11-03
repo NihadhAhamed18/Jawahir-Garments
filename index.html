@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#12130f">
+    <meta name="description" content="Jawahir Garments Wholesale Management System">
+    <title>Jawahir Garments | Wholesale POS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-mark">JG</div>
+            <div class="brand-text">
+                <h2>JAWAHIR</h2>
+                <span>GARMENTS</span>
+            </div>
+            <button class="close-btn" id="closeSidebar">×</button>
+        </div>
+
+        <div class="business-label">
+            WHOLESALE MANAGEMENT
+        </div>
+
+        <div class="menu-label">WORKSPACE</div>
+
+        <nav class="nav-menu">
+
+            <button class="nav-link active" data-page="dashboard">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Overview</span>
+            </button>
+
+            <button class="nav-link" data-page="billing">
+                <i data-lucide="receipt"></i>
+                <span>Wholesale Billing</span>
+                <span class="nav-tag">POS</span>
+            </button>
+
+            <button class="nav-link" data-page="products">
+                <i data-lucide="package"></i>
+                <span>Products & Stock</span>
+            </button>
+
+            <button class="nav-link" data-page="customers">
+                <i data-lucide="users"></i>
+                <span>Customers</span>
+            </button>
+
+            <button class="nav-link" data-page="suppliers">
+                <i data-lucide="truck"></i>
+                <span>Suppliers</span>
+            </button>
+
+            <button class="nav-link" data-page="purchases">
+                <i data-lucide="shopping-cart"></i>
+                <span>Purchases</span>
+            </button>
+
+        </nav>
+
+        <div class="menu-label second-label">BUSINESS INSIGHTS</div>
+
+        <nav class="nav-menu">
+
+            <button class="nav-link" data-page="sales">
+                <i data-lucide="chart-no-axes-combined"></i>
+                <span>Sales History</span>
+            </button>
+
+            <button class="nav-link" data-page="payments">
+                <i data-lucide="wallet"></i>
+                <span>Payments & Credit</span>
+            </button>
+
+            <button class="nav-link" data-page="reports">
+                <i data-lucide="chart-pie"></i>
+                <span>Reports</span>
+            </button>
+
+        </nav>
+
+        <div class="sidebar-spacer"></div>
+
+        <div class="sidebar-bottom">
+
+            <div class="store-card">
+                <div class="store-icon">
+                    <i data-lucide="store"></i>
+                </div>
+                <div>
+                    <strong>Jawahir Garments</strong>
+                    <span>Wholesale Store</span>
+                </div>
+                <span class="live-dot"></span>
+            </div>
+
+            <button class="nav-link settings-link" data-page="settings">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+            </button>
+
+            <div class="sidebar-version">JAWAHIR POS · V1.0</div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MOBILE OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="header-left">
+
+                <button class="menu-toggle icon-button" id="menuToggle">
+                    <i data-lucide="menu"></i>
+                </button>
+
+                <div>
+                    <div class="breadcrumb">JAWAHIR / <span id="breadcrumb">OVERVIEW</span></div>
+                    <h2 id="pageTitle">Business Overview</h2>
+                </div>
+
+            </div>
+
+            <div class="header-right">
+
+                <div class="date-box">
+                    <i data-lucide="calendar-days"></i>
+                    <span id="todayDate"></span>
+                </div>
+
+                <button class="icon-button theme-button" id="themeToggle" title="Change theme">
+                    <i data-lucide="moon" id="themeIcon"></i>
+                </button>
+
+                <div class="admin-profile">
+                    <div class="avatar">JG</div>
+                    <div class="admin-info">
+                        <strong>Store Admin</strong>
+                        <span>Administrator</span>
+                    </div>
+                    <i data-lucide="chevron-down" class="profile-chevron"></i>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section class="page active" id="dashboard">
+
+            <div class="welcome-row">
+
+                <div class="welcome-content">
+                    <div class="eyebrow">
+                        <span></span> WHOLESALE BUSINESS OVERVIEW
+                    </div>
+
+                    <h1>Welcome back, <span>Admin.</span></h1>
+
+                    <p>Here's your business performance at a glance.</p>
+                </div>
+
+                <button class="gold-button" data-go="billing">
+                    <i data-lucide="plus"></i>
+                    Create Wholesale Bill
+                </button>
+
+            </div>
+
+
+            <!-- SAMPLE DATA NOTICE -->
+            <div class="sample-notice">
+                <i data-lucide="info"></i>
+                <span>DEMO PREVIEW · The figures below are sample data, not actual store transactions.</span>
+            </div>
+
+
+            <!-- KPI CARDS -->
+            <div class="stats-grid">
+
+                <article class="stat-card">
+                    <div class="stat-heading">
+                        <span>Total Sales Today</span>
+                        <div class="stat-icon gold">
+                            <i data-lucide="banknote"></i>
+                        </div>
+                    </div>
+                    <h2>Rs. 285,000</h2>
+                    <div class="stat-footer">
+                        <span class="positive"><i data-lucide="trending-up"></i> 12.8%</span>
+                        <span>vs previous day</span>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-heading">
+                        <span>Wholesale Orders</span>
+                        <div class="stat-icon blue">
+                            <i data-lucide="shopping-bag"></i>
+                        </div>
+                    </div>
+                    <h2>24</h2>
+                    <div class="stat-footer">
+                        <span class="positive"><i data-lucide="trending-up"></i> 8.4%</span>
+                        <span>vs previous day</span>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-heading">
+                        <span>Outstanding Credit</span>
+                        <div class="stat-icon orange">
+                            <i data-lucide="wallet"></i>
+                        </div>
+                    </div>
+                    <h2>Rs. 450,000</h2>
+                    <div class="stat-footer">
+                        <span class="warning-text">12 customers</span>
+                        <span>with pending balances</span>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-heading">
+                        <span>Inventory Value</span>
+                        <div class="stat-icon green">
+                            <i data-lucide="boxes"></i>
+                        </div>
+                    </div>
+                    <h2>Rs. 2.85M</h2>
+                    <div class="stat-footer">
+                        <span class="positive">1,850 pcs</span>
+                        <span>sample stock count</span>
+                    </div>
+                </article>
+
+            </div>
+
+
+            <!-- MAIN DASHBOARD GRID -->
+            <div class="content-grid">
+
+                <!-- SALES CHART -->
+                <section class="panel sales-panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <div class="section-kicker">PERFORMANCE</div>
+                            <h3>Wholesale Sales</h3>
+                            <p>Sales performance during the last 7 days</p>
+                        </div>
+
+                        <div class="chart-period">LAST 7 DAYS</div>
+                    </div>
+
+                    <div class="chart-total">
+                        <h2>Rs. 1,485,000</h2>
+                        <span>Sample weekly revenue</span>
+                    </div>
+
+                    <div class="sales-chart">
+
+                        <div class="chart-y-axis">
+                            <span>300K</span>
+                            <span>225K</span>
+                            <span>150K</span>
+                            <span>75K</span>
+                            <span>0</span>
+                        </div>
+
+                        <div class="chart-area">
+
+                            <div class="chart-lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <div class="chart-bars">
+
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height:48%"></div>
+                                    <span>Mon</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height:70%"></div>
+                                    <span>Tue</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height:55%"></div>
+                                    <span>Wed</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height:82%"></div>
+                                    <span>Thu</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height:62%"></div>
+                                    <span>Fri</span>
+                                </div>
+
+                                <div class="chart-column highlight">
+                                    <div class="chart-bar" style="height:95%"></div>
+                                    <span>Sat</span>
+                                </div>
+
+                                <div class="chart-column">
+                                    <div class="chart-bar" style="height:75%"></div>
+                                    <span>Sun</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="chart-footnote">
+                        <span class="legend-dot"></span>
+                        Wholesale revenue · Sample visualization
+                    </div>
+
+                </section>
+
+
+                <!-- QUICK ACTIONS -->
+                <section class="panel quick-panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <div class="section-kicker">SHORTCUTS</div>
+                            <h3>Quick Actions</h3>
+                            <p>Manage daily operations</p>
+                        </div>
+                    </div>
+
+                    <button class="quick-action" data-go="billing">
+                        <div class="quick-icon gold">
+                            <i data-lucide="file-plus-2"></i>
+                        </div>
+                        <div>
+                            <strong>New Wholesale Bill</strong>
+                            <span>Create a customer invoice</span>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="action-arrow"></i>
+                    </button>
+
+                    <button class="quick-action" data-go="products">
+                        <div class="quick-icon blue">
+                            <i data-lucide="package-plus"></i>
+                        </div>
+                        <div>
+                            <strong>Add New Product</strong>
+                            <span>Update garment inventory</span>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="action-arrow"></i>
+                    </button>
+
+                    <button class="quick-action" data-go="customers">
+                        <div class="quick-icon green">
+                            <i data-lucide="user-plus"></i>
+                        </div>
+                        <div>
+                            <strong>Register Customer</strong>
+                            <span>Add wholesale customers</span>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="action-arrow"></i>
+                    </button>
+
+                    <button class="quick-action" data-go="purchases">
+                        <div class="quick-icon orange">
+                            <i data-lucide="truck"></i>
+                        </div>
+                        <div>
+                            <strong>Record Purchase</strong>
+                            <span>Update incoming stock</span>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="action-arrow"></i>
+                    </button>
+
+                </section>
+
+            </div>
+
+
+            <!-- LOWER GRID -->
+            <div class="lower-grid">
+
+                <!-- RECENT ORDERS -->
+                <section class="panel orders-panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <div class="section-kicker">TRANSACTIONS</div>
+                            <h3>Recent Wholesale Orders</h3>
+                        </div>
+
+                        <button class="view-button" data-go="sales">
+                            View all <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>INVOICE</th>
+                                    <th>CUSTOMER</th>
+                                    <th>AMOUNT</th>
+                                    <th>PAYMENT</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td><strong>#JG-001</strong></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <div class="customer-avatar">AM</div>
+                                            <span>Amal Stores</span>
+                                        </div>
+                                    </td>
+                                    <td>Rs. 85,000</td>
+                                    <td><span class="status paid">Paid</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td><strong>#JG-002</strong></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <div class="customer-avatar">RK</div>
+                                            <span>RK Fashion</span>
+                                        </div>
+                                    </td>
+                                    <td>Rs. 120,000</td>
+                                    <td><span class="status partial">Partial</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td><strong>#JG-003</strong></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <div class="customer-avatar">MS</div>
+                                            <span>MS Collections</span>
+                                        </div>
+                                    </td>
+                                    <td>Rs. 45,000</td>
+                                    <td><span class="status unpaid">Unpaid</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="demo-caption">Illustrative sample transactions only.</p>
+
+                </section>
+
+
+                <!-- LOW STOCK -->
+                <section class="panel stock-panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <div class="section-kicker">INVENTORY ALERT</div>
+                            <h3>Low Stock Products</h3>
+                        </div>
+
+                        <span class="alert-count">03</span>
+                    </div>
+
+                    <div class="stock-item">
+                        <div class="product-thumbnail">TS</div>
+                        <div class="stock-details">
+                            <strong>Men's T-Shirt</strong>
+                            <span>SKU: JG-TS01</span>
+                        </div>
+                        <div class="stock-quantity">
+                            <strong>08 pcs</strong>
+                            <span>Low stock</span>
+                        </div>
+                    </div>
+
+                    <div class="stock-item">
+                        <div class="product-thumbnail shirt">SH</div>
+                        <div class="stock-details">
+                            <strong>Casual Shirt</strong>
+                            <span>SKU: JG-SH02</span>
+                        </div>
+                        <div class="stock-quantity">
+                            <strong>12 pcs</strong>
+                            <span>Low stock</span>
+                        </div>
+                    </div>
+
+                    <div class="stock-item">
+                        <div class="product-thumbnail trouser">TR</div>
+                        <div class="stock-details">
+                            <strong>Men's Trouser</strong>
+                            <span>SKU: JG-TR03</span>
+                        </div>
+                        <div class="stock-quantity">
+                            <strong>05 pcs</strong>
+                            <span>Low stock</span>
+                        </div>
+                    </div>
+
+                    <button class="stock-button" data-go="products">
+                        Manage Inventory <i data-lucide="arrow-right"></i>
+                    </button>
+
+                    <p class="demo-caption">Illustrative sample stock data only.</p>
+
+                </section>
+
+            </div>
+
+
+            <footer class="footer">
+                <span>© 2026 Jawahir Garments. All rights reserved.</span>
+                <span>Wholesale Management System · Version 1.0</span>
+            </footer>
+
+        </section>
+
+
+        <!-- OTHER APPLICATION PAGES -->
+
+        <section class="page placeholder-page" id="billing">
+            <div class="page-intro">
+                <span class="eyebrow">SALES OPERATIONS</span>
+                <h1>Wholesale Billing</h1>
+                <p>Create invoices for registered and walk-in customers.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i data-lucide="package"></i>
+                    <h3>Bulk Quantity Sales</h3>
+                    <p>Sell individual pieces, dozens, cartons and bundles.</p>
+                </div>
+                <div class="feature-card">
+                    <i data-lucide="percent"></i>
+                    <h3>Wholesale Pricing</h3>
+                    <p>Quantity-based pricing and discounts.</p>
+                </div>
+                <div class="feature-card">
+                    <i data-lucide="printer"></i>
+                    <h3>Invoice Printing</h3>
+                    <p>Professional A4 and thermal receipts.</p>
+                </div>
+            </div>
+
+            <div class="panel module-message">
+                <i data-lucide="construction"></i>
+                <h3>Billing module coming in Stage 3</h3>
+                <p>This section is a preview. Actual billing calculations and saving will be implemented in the next stages.</p>
+            </div>
+        </section>
+
+
+        <section class="page placeholder-page" id="products">
+            <div class="page-intro">
+                <span class="eyebrow">INVENTORY OPERATIONS</span>
+                <h1>Products & Stock</h1>
+                <p>Manage your garment inventory.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i data-lucide="shirt"></i>
+                    <h3>Garment Details</h3>
+                    <p>Product name, category, brand and SKU.</p>
+                </div>
+                <div class="feature-card">
+                    <i data-lucide="ruler"></i>
+                    <h3>Sizes & Colours</h3>
+                    <p>Manage S, M, L, XL and garment colours.</p>
+                </div>
+                <div class="feature-card">
+                    <i data-lucide="boxes"></i>
+                    <h3>Stock Units</h3>
+                    <p>Pieces, dozens and carton quantities.</p>
+                </div>
+            </div>
+
+            <div class="panel module-message">
+                <i data-lucide="package"></i>
+                <h3>Product management coming in Stage 2</h3>
+                <p>Product registration, stock tracking and pricing will be added next.</p>
+            </div>
+        </section>
+
+
+        <section class="page placeholder-page" id="customers">
+            <div class="page-intro">
+                <span class="eyebrow">CUSTOMER RELATIONSHIPS</span>
+                <h1>Customers</h1>
+                <p>Manage registered wholesale buyers and walk-in customers.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <i data-lucide="user-round-plus"></i>
+                    <h3>Customer Registration</h3>
+                    <p>Save customer contact and business information.</p>
+                </div>
+                <div class="feature-card">
+                    <i data-lucide="badge-dollar-sign"></i>
+                    <h3>Customer Pricing</h3>
+                    <p>Maintain wholesale customer price levels.</p>
+                </div>
+                <div class="feature-card">
+                    <i data-lucide="book-open"></i>
+                    <h3>Account History</h3>
+                    <p>Review orders and outstanding balances.</p>
+                </div>
+            </div>
+
+            <div class="panel module-message">
+                <i data-lucide="users"></i>
+                <h3>Customer management coming soon</h3>
+                <p>Customer registration and account history will be implemented in a later stage.</p>
+            </div>
+        </section>
+
+
+        <section class="page placeholder-page" id="suppliers">
+            <div class="page-intro">
+                <span class="eyebrow">SUPPLY CHAIN</span>
+                <h1>Suppliers</h1>
+                <p>Manage garment suppliers and their details.</p>
+            </div>
+            <div class="panel module-message">
+                <i data-lucide="truck"></i>
+                <h3>Supplier management coming soon</h3>
+                <p>Supplier registration and supplier balances will be added later.</p>
+            </div>
+        </section>
+
+
+        <section class="page placeholder-page" id="purchases">
+            <div class="page-intro">
+                <span class="eyebrow">PURCHASE OPERATIONS</span>
+                <h1>Purchases</h1>
+                <p>Record incoming garments and stock purchases.</p>
+            </div>
+            <div class="panel module-message">
+                <i data-lucide="shopping-cart"></i>
+                <h3>Purchase management coming soon</h3>
+                <p>Purchase invoices and stock-in records will be developed later.</p>
+            </div>
+        </section>
+
+
+        <section class="page placeholder-page" id="sales">
+            <div class="page-intro">
+                <span class="eyebrow">TRANSACTION RECORDS</span>
+                <h1>Sales History</h1>
+                <p>Review your completed wholesale orders.</p>
+            </div>
+            <div class="panel module-message">
+                <i data-lucide="history"></i>
+                <h3>Sales history coming soon</h3>
+                <p>Searchable invoice history will be added after billing is developed.</p>
+            </div>
+        </section>
+
+
+        <section class="page placeholder-page" id="payments">
+            <div class="page-intro">
+                <span class="eyebrow">FINANCIAL MANAGEMENT</span>
+                <h1>Payments & Credit</h1>
+                <p>Track customer payments and outstanding balances.</p>
+            </div>
+            <div class="panel module-message">
+                <i data-lucide="wallet"></i>
+                <h3>Payment management coming soon</h3>
+                <p>Cash, bank, card, partial payment and credit tracking will be developed later.</p>
+            </div>
+        </section>
+
+
+        <section class="page placeholder-page" id="reports">
+            <div class="page-intro">
+                <span class="eyebrow">BUSINESS ANALYTICS</span>
+                <h1>Reports & Analytics</h1>
+                <p>Understand your wholesale business performance.</p>
+            </div>
+            <div class="panel module-message">
+                <i data-lucide="chart-pie"></i>
+                <h3>Reporting module coming soon</h3>
+                <p>Sales, inventory, profit and customer reports will be developed later.</p>
+            </div>
+        </section>
+
+
+        <section class="page placeholder-page" id="settings">
+            <div class="page-intro">
+                <span class="eyebrow">SYSTEM CONFIGURATION</span>
+                <h1>Store Settings</h1>
+                <p>Configure your business information.</p>
+            </div>
+            <div class="panel module-message">
+                <i data-lucide="settings"></i>
+                <h3>Store settings</h3>
+                <p>Store address, telephone, currency, invoice details and preferences will be added later.</p>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
